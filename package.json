@@ -1,6 +1,6 @@
 {
   "name": "cnoctave-student-learn-management-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "cnoctave-student-learn-management-system - open source AI student learn management system.",
   "main": "cnoctave-student-learn-management-system.js",
   "directories": {
