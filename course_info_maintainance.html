@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
+    <meta name="theme-color" content="#00B4FF">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="msapplication-TileImage" content="/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="apple-mobile-web-app-title" content="Octave中文网">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@^4.0.0/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@2.17.0/dist/quasar.prod.css" rel="stylesheet" type="text/css">
+    <link href="assets/main.css" rel="stylesheet" type="text/css">
+    <title>Octave中文网学生学习管理系统</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="title" content="Octave中文网" data-qmeta="title">
+    <meta property="og:title" content="Octave中文网" data-qmeta="ogTitle">
+    <meta name="twitter:title" content="Octave中文网" data-qmeta="twitterTitle">
+    <meta name="description" content="Octave中文网是一个面向中文Octave开发者的交流平台，拥有中文Octave文档、中文Octave论坛和中文Octave新闻等特色。"
+        data-qmeta="description">
+    <meta property="og:description" content="Octave中文网是一个面向中文Octave开发者的交流平台，拥有中文Octave文档、中文Octave论坛和中文Octave新闻等特色。"
+        data-qmeta="ogDesc">
+    <meta name="twitter:description" content="Octave中文网是一个面向中文Octave开发者的交流平台，拥有中文Octave文档、中文Octave论坛和中文Octave新闻等特色。"
+        data-qmeta="twitterDesc">
+</head>
+
+<body>
+    <div id="q-app">
+        <q-layout view="hHh LpR fFf">
+            <q-toolbar class="bg-primary text-white q-ny-md shadow-2">
+                <q-btn stretch flat label="Octave中文网" @click="goTo('http://cnoctave.top')">
+                    <a href='http://cnoctave.top' target="_blank"></a>
+                </q-btn>
+                <q-separator dark vertical></q-separator>
+                <q-btn-dropdown stretch flat icon="visibility" label="学生学习画像">
+                    <q-list>
+                        <q-item clickable v-close-popup @click="goTo('index.html')">
+                            <q-item-section>
+                                <q-item-label>学生学习画像</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('student_info_query.html')">
+                            <q-item-section>
+                                <q-item-label>学生信息查询</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('student_score_info_query.html')">
+                            <q-item-section>
+                                <q-item-label>学生成绩信息查询</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('class_teaching_monitor.html')">
+                            <q-item-section>
+                                <q-item-label>课堂教学监测</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('student_evaluation.html')">
+                            <q-item-section>
+                                <q-item-label>学生评价</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('courseware_management.html')">
+                            <q-item-section>
+                                <q-item-label>课件管理</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                    </q-list>
+                </q-btn-dropdown>
+                <q-separator dark vertical></q-separator>
+                <q-btn-dropdown stretch flat icon="edit" label="系统管理">
+                    <q-list>
+                        <q-item clickable v-close-popup @click="goTo('student_info_maintainance.html')">
+                            <q-item-section>
+                                <q-item-label>学生信息维护</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('student_score_info_maintainance.html')">
+                            <q-item-section>
+                                <q-item-label>学生成绩信息维护</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('teacher_info_maintainance.html')">
+                            <q-item-section>
+                                <q-item-label>教师信息维护</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('teach_year_info_maintainance.html')">
+                            <q-item-section>
+                                <q-item-label>学期信息维护</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('discipline_info_maintainance.html')">
+                            <q-item-section>
+                                <q-item-label>学科信息维护</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('class_info_maintainance.html')">
+                            <q-item-section>
+                                <q-item-label>班级信息维护</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('course_info_maintainance.html')">
+                            <q-item-section>
+                                <q-item-label>课程信息维护</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                    </q-list>
+                </q-btn-dropdown>
+                <q-separator dark vertical></q-separator>
+                <q-space></q-space>
+                <q-separator dark vertical></q-separator>
+                <q-btn stretch flat label="中文版Octave文档" @click="goTo('http://docs.cnoctave.top')">
+                    <a href='http://docs.cnoctave.top' target="_blank"></a>
+                </q-btn>
+                <q-separator dark vertical></q-separator>
+                <q-btn stretch flat label="学术交流论坛" @click="goTo('http://forum.cnoctave.top')">
+                    <a href='http://forum.cnoctave.top' target="_blank"></a>
+                </q-btn>
+                <q-separator dark vertical></q-separator>
+                <q-btn stretch flat label="新闻" @click="goTo('https://octave.org/news.html')">
+                    <a href='https://octave.org/news.html' target="_blank"></a>
+                </q-btn>
+                <q-separator dark vertical></q-separator>
+                <q-btn stretch flat label="使用方法" @click="goTo('https://wiki.octave.org/Using_Octave')">
+                    <a href='https://wiki.octave.org/Using_Octave' target="_blank"></a>
+                </q-btn>
+                <q-separator dark vertical></q-separator>
+                <q-btn stretch flat label="免费下载" @click="goTo('https://octave.org/download')">
+                    <a href='https://octave.org/download' target="_blank"></a>
+                </q-btn>
+            </q-toolbar>
+            <h1>课程信息维护</h1>
+            <q-input filled v-model="search" label="搜索学科名称（课程名称）/学期/主讲教师" class="q-mb-md">
+                <template v-slot:prepend>
+                    <q-btn color="primary" icon-right="search" label="搜索"></q-btn>
+                </template>
+            </q-input>
+            <q-table :rows="courses" :columns="columns" row-key="id">
+                <template v-slot:top>
+                    <q-btn color="primary" icon-right="add" label="增加课程信息"></q-btn>
+                </template>
+            </q-table>
+
+        </q-layout>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@2.17.0/dist/quasar.umd.prod.js"></script>
+    <script>
+        const App = {
+            data() {
+                return {
+                    goTo(target) {
+                        window.open(target, '_blank');
+                    },
+                    courses: [
+                        { id: 1, name: '高等数学', semester: '2023秋季学期', leadTeacher: '张三' },
+                        { id: 2, name: '线性代数', semester: '2023春季学期', leadTeacher: '李四' },
+                        { id: 3, name: '概率论与数理统计', semester: '2024秋季学期', leadTeacher: '王五' },
+                    ],
+                    columns: [
+                        { name: 'name', label: '学科名称（课程名称）', field: 'name', align: 'left' },
+                        { name: 'semester', label: '学期', field: 'semester', align: 'left' },
+                        { name: 'leadTeacher', label: '主讲教师', field: 'leadTeacher', align: 'left' },
+                    ],
+                }
+            },
+            mounted() {
+            },
+        };
+        const app = Vue.createApp(App);
+        app.use(Quasar)
+        app.mount('#q-app')
+    </script>
+
+</body>
+
+</html>
